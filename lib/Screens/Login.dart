@@ -22,6 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      children: const [],
       child: Column(
         children: [
           const Expanded(

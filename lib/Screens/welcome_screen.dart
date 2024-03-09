@@ -1,15 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:project12/Screens/Login.dart';
 import 'package:project12/Screens/signup_screen.dart';
 import 'package:project12/Theme/theme.dart';
 import 'package:project12/Widgets/custom_scaffold.dart';
 import 'package:project12/Widgets/welcome_button.dart';
-// import 'package:login_signup/screens/signin_screen.dart';
-// import 'package:login_signup/screens/signup_screen.dart';
-// import 'package:login_signup/theme/theme.dart';
-// import 'package:login_signup/widgets/custom_scaffold.dart';
-// import 'package:login_signup/widgets/welcome_button.dart';
+
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -21,6 +18,7 @@ class WelcomeScreen extends StatelessWidget {
         children: [
           Flexible(
               flex: 8,
+
               child: Container(
                 padding: const EdgeInsets.symmetric(
                   vertical: 0,
@@ -77,6 +75,13 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ],
       ),
+      children: const [
+          Stack(
+          children: <Widget>[
+
+          ],
+          ),
+        ]
     );
   }
 }
