@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:project12/Screens/welcome_screen.dart';
 import 'package:project12/Theme/theme.dart';
+// import 'package:project12/Screens/Home_Screen.dart';
 // ignore: depend_on_referenced_packages
 // import 'package:login_signup/screens/welcome_screen.dart';
 // ignore: depend_on_referenced_packages
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: lightMode,
       home: const WelcomeScreen(),
+      // home: const HomeScreen(),
+
     );
   }
 }

@@ -1,7 +1,8 @@
 // ignore_for_file: depend_on_referenced_packages
 
-
 import 'package:flutter/material.dart';
+import 'package:project12/Screens/Home_Screen.dart';
+import 'package:project12/Screens/sections.dart';
 import 'package:project12/Screens/signup_screen.dart';
 import 'package:project12/Widgets/custom_scaffold.dart';
 // import 'package:login_signup/screens/signup_screen.dart';
@@ -163,11 +164,10 @@ class _SignInScreenState extends State<SignInScreen> {
                           onPressed: () {
                             if (_formSignInKey.currentState!.validate() &&
                                 rememberPassword) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Processing Data'),
-                                ),
-                              );
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const HomeScreen()));
                             } else if (!rememberPassword) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
@@ -176,7 +176,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               );
                             }
                           },
-                          child: const Text('Sign up'),
+                          child: const Text('Sign in'),
                         ),
                       ),
                       const SizedBox(

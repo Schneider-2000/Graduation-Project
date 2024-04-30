@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:project12/Screens/Login.dart';
 import 'package:project12/Screens/signup_screen.dart';
 import 'package:project12/Theme/theme.dart';
