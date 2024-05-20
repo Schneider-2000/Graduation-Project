@@ -89,9 +89,9 @@ class Categries extends StatelessWidget {
                       borderRadius: BorderRadius.circular(500)),
                   child: Image.asset(
                     fit: BoxFit.cover,
-                    'assets/images/dinner.png',
-                    height: 100,
-                    width: 300,
+                    'assets/images/hospital.png',
+                    height: 70,
+                    width: 60,
                   ),
                 ),
               ),
@@ -121,7 +121,7 @@ class Categries extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.deepOrange,
                       borderRadius: BorderRadius.circular(500)),
-                  child: Image.asset('assets/images/dinner.png'),
+                  child: Image.asset('assets/images/bank.png'),
                 ),
               ),
               Container(
@@ -130,7 +130,8 @@ class Categries extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.deepOrange,
                     borderRadius: BorderRadius.circular(500)),
-                child: Image.asset('assets/images/dinner.png'),
+                child: Image.asset('assets/images/location_8517615.png'
+                ,height:50 ,width: 50,),
               ),
             ],
           )
