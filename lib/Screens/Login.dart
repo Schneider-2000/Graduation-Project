@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:project12/Screens/Home_Screen.dart';
-import 'package:project12/Screens/sections.dart';
 import 'package:project12/Screens/signup_screen.dart';
 import 'package:project12/Widgets/custom_scaffold.dart';
 // import 'package:login_signup/screens/signup_screen.dart';
