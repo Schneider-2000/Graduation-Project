@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/level.dart';
+import 'package:project12/Screens/home.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,7 +7,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 24, 16, 39),
+      backgroundColor: const Color.fromARGB(255, 7, 13, 46),
+      // backgroundColor: const Color.fromARGB(255, 24, 16, 39),
       body: Column(
         children: [
           // Container(
@@ -28,14 +29,28 @@ class HomeScreen extends StatelessWidget {
           //   ),
           // ),
           // ),
-          Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-            height: 150,
-            width: 140,
-            padding: const EdgeInsets.only(top: 40),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset('assets/images/Logo.jpg')),
+          // 
+          SizedBox(
+            width: double.infinity,
+            height: 130,
+            child: Card(
+              color: const Color.fromARGB(255, 239, 241, 243),
+              elevation: 10,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(45),
+                  bottomRight: Radius.circular(15),
+                  topLeft: Radius.circular(15),
+                  topRight: Radius.circular(45),
+              )),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Image.asset(
+                  'assets/images/Logo1.png',
+                  height: 180,
+                ),
+              ),
+            ),
           ),
           Container(
             height: 248,
@@ -87,7 +102,7 @@ class HomeScreen extends StatelessWidget {
           InkWell(
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const Level()));
+                  MaterialPageRoute(builder: (context) => const Home()));
             },
             child: Container(
               decoration: BoxDecoration(

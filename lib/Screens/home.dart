@@ -2,7 +2,9 @@
 
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:project12/Screens/Slang_categories.dart';
 import 'package:project12/Screens/categries.dart';
+import 'package:project12/Screens/level.dart';
 
 
 class Home extends StatefulWidget {
@@ -16,20 +18,20 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 15, 7, 124),
+      backgroundColor: const Color.fromARGB(255, 7, 13, 46),
       appBar: AppBar(
-        title: Text("Home"),
-        leading: Icon(Icons.menu),
+        title: const Text("Home"),
+        leading: const Icon(Icons.menu),
       ),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             width: double.infinity,
             height: 130,
             child: Card(
-              color: Color.fromARGB(255, 239, 241, 243),
+              color: const Color.fromARGB(255, 239, 241, 243),
               elevation: 10,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(45),
                 bottomRight: Radius.circular(15),
@@ -45,7 +47,7 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Padding(
@@ -53,11 +55,17 @@ class _HomeState extends State<Home> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return const SlangCategories();
+                    }));
+                  },
                   child: Card(
                     color: Colors.deepPurple,
                     elevation: 3,
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(45),
                       bottomRight: Radius.circular(15),
@@ -72,7 +80,7 @@ class _HomeState extends State<Home> {
                               'assets/images/yemen.png',
                               width: 130,
                             ),
-                            Text(
+                            const Text(
                               "Slang",
                               style: TextStyle(
                                   color: Colors.white,
@@ -87,51 +95,55 @@ class _HomeState extends State<Home> {
                   onTap: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return Categries();
+                      return const Categries();
                     }));
                   },
-                  child: Container(
-                    child: Card(
-                      color: Colors.deepPurple,
-                      elevation: 3,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(45),
-                        bottomRight: Radius.circular(15),
-                        topLeft: Radius.circular(15),
-                        topRight: Radius.circular(45),
-                      )),
-                      child: Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Column(
-                            children: [
-                              Image.asset(
-                                'assets/images/property.png',
-                                width: 130,
-                              ),
-                              Text(
-                                "Categries",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.bold),
-                              )
-                            ],
-                          )),
-                    ),
+                  child: Card(
+                    color: Colors.deepPurple,
+                    elevation: 3,
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(45),
+                      bottomRight: Radius.circular(15),
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(45),
+                    )),
+                    child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              'assets/images/property.png',
+                              width: 130,
+                            ),
+                            const Text(
+                              "Categries",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        )),
                   ),
                 )
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          Container(
+          InkWell(
+            onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return const Level();
+                    }));
+                  },
             child: Card(
               color: Colors.deepPurple,
               elevation: 3,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(45),
                 bottomRight: Radius.circular(15),
@@ -147,7 +159,7 @@ class _HomeState extends State<Home> {
                         'assets/images/level-up.png',
                         width: 130,
                       ),
-                      Text(
+                      const Text(
                         "Levels",
                         style: TextStyle(
                             color: Colors.white,

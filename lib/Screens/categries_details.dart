@@ -8,8 +8,8 @@ class CateoriesDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 24, 16, 39),
-
+      // backgroundColor: const Color.fromARGB(255, 24, 16, 39),
+      backgroundColor: const Color.fromARGB(255, 7, 13, 46),
       appBar: AppBar(
         title:Center(child: Text(title)) ,
       ),

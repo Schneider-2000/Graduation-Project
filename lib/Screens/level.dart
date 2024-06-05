@@ -9,7 +9,8 @@ class Level extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 24, 16, 39),
+      // backgroundColor: const Color.fromARGB(255, 24, 16, 39),
+      backgroundColor: const Color.fromARGB(255, 7, 13, 46),
       appBar: AppBar(
         title: const Text(
           "Levels",
@@ -20,7 +21,7 @@ class Level extends StatelessWidget {
 
         shadowColor: const Color.fromARGB(255, 84, 81, 236),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 21, 7, 46),
+        // backgroundColor: const Color.fromARGB(255, 21, 7, 46),
         // leading: IconButton(onPressed: () {}, icon: Icon(Icons.percent)),
       ),
       body: ListView(

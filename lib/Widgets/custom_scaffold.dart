@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class CustomScaffold extends StatelessWidget {
-  const CustomScaffold({super.key, this.child, required List<Stack> children});
+  const CustomScaffold({super.key, this.child, required List<Stack> children });
   final Widget? child;
   @override
   Widget build(BuildContext context) {
@@ -29,19 +29,19 @@ class CustomScaffold extends StatelessWidget {
       ),
     );
   // ignore: dead_code
-  child: Stack(
-    children: <Widget> [
-      Positioned(
-        width: 150,
-        height: 200,
-        top: 300,
-        child:Container(
-          decoration: const BoxDecoration(
-            image:DecorationImage(
-              image: AssetImage('assets/images/1.png')
-            ) ),
-        ) ,
-        )
-    ],) ;
+  // child: Stack(
+  //   children: <Widget> [
+  //     Positioned(
+  //       width: 150,
+  //       height: 200,
+  //       top: 300,
+  //       child:Container(
+  //         decoration: const BoxDecoration(
+  //           image:DecorationImage(
+  //             image: AssetImage('assets/images/1.png')
+  //           ) ),
+  //       ) ,
+  //       )
+  //   ],) ;
   }
 }

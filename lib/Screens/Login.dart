@@ -1,7 +1,9 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/Home_Screen.dart';
+import 'package:icons_plus/icons_plus.dart';
+import 'package:project12/Screens/Login_Splash_Screen.dart';
+import 'package:project12/Screens/forget_passsword_screen.dart';
 import 'package:project12/Screens/signup_screen.dart';
 import 'package:project12/Widgets/custom_scaffold.dart';
 // import 'package:login_signup/screens/signup_screen.dart';
@@ -18,7 +20,11 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   final _formSignInKey = GlobalKey<FormState>();
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
   bool rememberPassword = true;
+  bool passToggle = true;
+  
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -48,30 +54,49 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text(
-                        'Welcome back',
-                        style: TextStyle(
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w900,
-                          color: lightColorScheme.primary,
-                        ),
+                      Image.asset(
+                  'assets/images/Logo.jpg',
+                  height: 100,
+                  ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Welcome',
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              fontWeight: FontWeight.w900,
+                              color: lightColorScheme.primary,
+                            ),
+                          ),
+                          
+                          Image.asset(
+                          'assets/images/par.png',
+                          height: 80,
+                          width: 80,
+                          ),
+                        ],
                       ),
                       const SizedBox(
-                        height: 40.0,
+                        height: 20.0,
                       ),
                       TextFormField(
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter Email';
-                          }
-                          return null;
-                        },
+                        // validator: (value) {
+                        //   if (value == null || value.isEmpty) {
+                        //     return 'Please enter Email';
+                        //   }
+                        //   return null;
+                        // },
+                        keyboardType: TextInputType.emailAddress,
+                        controller: emailController,
                         decoration: InputDecoration(
                           label: const Text('Email'),
-                          hintText: 'Enter Email',
+                          hintText: ' Email',
                           hintStyle: const TextStyle(
                             color: Colors.black26,
                           ),
+                          prefixIcon: const Icon(Icons.email_outlined),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
                               color: Colors.black12, // Default border color
@@ -82,28 +107,54 @@ class _SignInScreenState extends State<SignInScreen> {
                             borderSide: const BorderSide(
                               color: Colors.black12, // Default border color
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10), 
                           ),
                         ),
+                        validator: (value) {
+                          bool emailValid = RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"
+                          ).hasMatch(value!);
+                          if (value.isEmpty) {
+                            return " Enter Email";
+                          }
+                          
+                          else if (!emailValid) {
+                            return "Enter Valid Email";
+                          
+                          }
+                          return null;
+                        },
                       ),
                       const SizedBox(
                         height: 25.0,
                       ),
                       TextFormField(
-                        obscureText: true,
+                        // obscureText: true,
                         obscuringCharacter: '*',
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter Password';
-                          }
-                          return null;
-                        },
+                        // validator: (value) {
+                        //   if (value == null || value.isEmpty) {
+                        //     return 'Please enter Password';
+                        //   }
+                        //   return null;
+                        // },
+                        keyboardType: TextInputType.emailAddress,
+                        controller: passController,
+                        obscureText: passToggle,
                         decoration: InputDecoration(
                           label: const Text('Password'),
                           hintText: 'Enter Password',
                           hintStyle: const TextStyle(
                             color: Colors.black26,
                           ),
+                          prefixIcon: const Icon(Icons.lock_outline),
+                          suffix: InkWell(
+                            onTap: (){
+                                  setState(() {
+                                      passToggle = !passToggle;
+                                    });
+                                },
+                           child: Icon(passToggle ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+                          ),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
                               color: Colors.black12, // Default border color
@@ -117,65 +168,79 @@ class _SignInScreenState extends State<SignInScreen> {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return " Enter password";
+                          }
+                          else if(passController.text.length < 6){
+                            return "Password Length Should  be more than 6 characters ";
+
+                          }
+                          return null;
+                        }
                       ),
                       const SizedBox(
                         height: 25.0,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
+                       Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Checkbox(
-                                value: rememberPassword,
-                                onChanged: (bool? value) {
-                                  setState(() {
-                                    rememberPassword = value!;
-                                  });
-                                },
-                                activeColor: lightColorScheme.primary,
-                              ),
-                              const Text(
-                                'Remember me',
-                                style: TextStyle(
-                                  color: Colors.black45,
+                              Center(
+                                
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const ForgetPasswordScreen()));
+                                  } ,
+                                  child: Text(
+                                    'Forget password?',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: lightColorScheme.primary,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
                           ),
-                          GestureDetector(
-                            child: Text(
-                              'Forget password?',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: lightColorScheme.primary,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                       const SizedBox(
                         height: 25.0,
                       ),
                       SizedBox(
                         width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            if (_formSignInKey.currentState!.validate() &&
-                                rememberPassword) {
-                              Navigator.push(
+                        child: InkWell(
+                          onTap: () {
+                           if (_formSignInKey.currentState!.validate()) {
+                           print('object');
+                           emailController.clear();
+                           passController.clear();
+                           }
+                          },
+                          child: ElevatedButton(
+                            onPressed: () {
+                              if (_formSignInKey.currentState!.validate() &&
+                                passToggle) {
+                                  Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const HomeScreen()));
-                            } else if (!rememberPassword) {
+                                      builder: (context) => const LoginSplash()));
+                            } else if (!passToggle) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content: Text(
                                         'Please agree to the processing of personal data')),
                               );
                             }
-                          },
-                          child: const Text('Sign in'),
+                              
+                            },
+                            child: const Text('Sign in'),
+                          )
+                          // onPressed: () {
+                          //   
+                          // },
+                          
                         ),
                       ),
                       const SizedBox(
@@ -213,13 +278,13 @@ class _SignInScreenState extends State<SignInScreen> {
                       const SizedBox(
                         height: 25.0,
                       ),
-                      const Row(
+                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           // Logo(Logos.facebook_f),
                           // Logo(Logos.twitter),
-                          // Logo(Logos.google),
-                          // Logo(Logos.apple),
+                           Logo(Logos.google),
+                          Logo(Logos.apple),
                         ],
                       ),
                       const SizedBox(

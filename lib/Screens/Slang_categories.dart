@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project12/Screens/categries_details.dart';
 
-class Categries extends StatelessWidget {
-  const Categries({super.key});
+class SlangCategories extends StatelessWidget {
+  const SlangCategories({super.key});
 
   final String restorent = "مطعـم";
   final String hospital = "مستـشفـى";
@@ -10,9 +10,7 @@ class Categries extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Categories"),
-      ),
+      appBar: AppBar(),
       // backgroundColor: const Color.fromARGB(255, 24, 16, 39),
       backgroundColor: const Color.fromARGB(255, 7, 13, 46),
       // bottomNavigationBar: BottomNavigationBar(items: [
@@ -43,7 +41,7 @@ class Categries extends StatelessWidget {
                       blurRadius: 10),
                 ]),
             child: const Center(
-                child: Text("من هنا لهجه المكلا",
+                child: Text("من هنا تعلم اللغه العربيه",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -92,7 +90,7 @@ class Categries extends StatelessWidget {
                       borderRadius: BorderRadius.circular(500)),
                   child: Image.asset(
                     fit: BoxFit.cover,
-                    'assets/images/hospital.png',
+                    'assets/images/dinner.png',
                     height: 70,
                     width: 60,
                   ),
@@ -124,7 +122,7 @@ class Categries extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: Colors.deepOrange,
                       borderRadius: BorderRadius.circular(500)),
-                  child: Image.asset('assets/images/bank.png'),
+                  child: Image.asset('assets/images/dinner.png'),
                 ),
               ),
               Container(
@@ -133,7 +131,7 @@ class Categries extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.deepOrange,
                     borderRadius: BorderRadius.circular(500)),
-                child: Image.asset('assets/images/location_8517615.png'
+                child: Image.asset('assets/images/dinner.png'
                 ,height:50 ,width: 50,),
               ),
             ],
@@ -143,59 +141,3 @@ class Categries extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  Future<List> getTeams() async {
-//     var response =
-//         await get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
-//     List jasonData = jsonDecode(response.body);
-//     return jasonData;
-//   }
-
-
-
-
-
-// body: FutureBuilder<List>(
-//           future: getTeams(),
-//           builder: (context, snapshot) {
-//             if (snapshot.connectionState == ConnectionState.waiting) {
-//               return const Center(
-//                 child: CircularProgressIndicator(),
-//               );
-//             } else {
-//               const Center(
-//                 child: Text(
-//                     'The connection is Failed please Check your internet connection'),
-//               );
-//             }
-//             return ListView.builder(
-//                 itemCount: snapshot.data!.length,
-//                 itemBuilder: (context, index) {
-//                   return ListTile(
-//                       title: Text(
-//                         "${snapshot.data![index]['title']}",
-//                       ),
-//                       subtitle: Text(
-//                         "${snapshot.data![index]['body']}",
-//                       ));
-//                 });
-//           }),

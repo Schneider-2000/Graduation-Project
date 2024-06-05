@@ -8,11 +8,20 @@ class Sections extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Home",
+        // style: TextStyle( color: Colors.white),
+        ),
+        leading: const Icon(Icons.menu,
+          // color: Colors.white,
+        ),
+          // backgroundColor: const Color.fromARGB(255, 24, 16, 39),
+      ),
       body: Column(
         children: [
           Expanded(
               child: Container(
-                  color: Colors.deepPurple[100],
+                  color: const Color.fromARGB(255, 7, 13, 46),
                   width: double.infinity,
                   child: IconButton(
                       onPressed: () {
@@ -23,9 +32,12 @@ class Sections extends StatelessWidget {
                         color: Colors.white,
                         size: 200,
                       )))),
+                    const Divider(
+                      height: 2,
+                    ),
           Expanded(
               child: Container(
-            color: Colors.deepPurple,
+            color: const Color.fromARGB(255, 7, 13, 46),
             width: double.infinity,
             child:IconButton(onPressed: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>const LessonSpeaking()));

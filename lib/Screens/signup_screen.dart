@@ -17,6 +17,11 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formSignupKey = GlobalKey<FormState>();
   bool agreePersonalData = true;
+  
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
+  bool rememberPassword = true;
+  bool passToggle = true;
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
@@ -26,7 +31,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           const Expanded(
             flex: 1,
             child: SizedBox(
-              height: 10,
+              height: 5,
             ),
           ),
           Expanded(
@@ -47,6 +52,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                       Image.asset(
+                  'assets/images/Logo.jpg',
+                  height: 100,
+                  ),
                       // get started text
                       Text(
                         'Get Started',
@@ -56,8 +65,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           color: lightColorScheme.primary,
                         ),
                       ),
+                      
                       const SizedBox(
-                        height: 40.0,
+                        height: 20.0,
                       ),
                       // full name
                       TextFormField(
@@ -73,6 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           hintStyle: const TextStyle(
                             color: Colors.black26,
                           ),
+                          prefixIcon: const Icon(Icons.person_2_outlined),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
                               color: Colors.black12, // Default border color
@@ -88,22 +99,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       const SizedBox(
-                        height: 25.0,
+                        height: 10.0,
                       ),
                       // email
                       TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        controller: emailController,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter Email';
+                          bool emailValid = RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"
+                          ).hasMatch(value!);
+                          if (value.isEmpty) {
+                            return " Enter Email";
+                          }
+                          
+                          else if (!emailValid) {
+                            return "Enter Valid Email";
+                          
                           }
                           return null;
-                        },
+                          },
                         decoration: InputDecoration(
                           label: const Text('Email'),
                           hintText: 'Enter Email',
                           hintStyle: const TextStyle(
                             color: Colors.black26,
                           ),
+                          prefixIcon: const Icon(Icons.email_outlined),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
                               color: Colors.black12, // Default border color
@@ -119,15 +141,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       const SizedBox(
-                        height: 25.0,
+                        height: 10.0,
                       ),
                       // password
                       TextFormField(
-                        obscureText: true,
+                        keyboardType: TextInputType.emailAddress,
+                        controller: passController,
+                        obscureText: passToggle,
                         obscuringCharacter: '*',
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter Password';
+                          if (value!.isEmpty) {
+                            return " Enter password";
+                          }
+                          else if(passController.text.length < 6){
+                            return "Password Length Should  be more than 6 characters ";
+
                           }
                           return null;
                         },
@@ -137,6 +165,65 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           hintStyle: const TextStyle(
                             color: Colors.black26,
                           ),
+                          
+                          prefixIcon: const Icon(Icons.lock_outline),
+                          suffix: InkWell(
+                            onTap: (){
+                                  setState(() {
+                                      passToggle = !passToggle;
+                                    });
+                                },
+                           child: Icon(passToggle ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.black12, // Default border color
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.black12, // Default border color
+                            ),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                       const SizedBox(
+                        height: 10.0,
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        obscureText: passToggle,
+                        obscuringCharacter: '*',
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return " confirm Password";
+                          }
+                          return null;
+                          // else if( passController.text.length != passController){
+                          //   return "Password are not Confirmed ";
+
+                          // }else if(passController == passController.text.length ){
+                          //   return "Password are  Confirmed ";
+                          // }
+                        },
+                        
+                        decoration: InputDecoration(
+                          label: const Text(' confirm Password'),
+                          hintText: 'confirm Password',
+                          hintStyle: const TextStyle(
+                            color: Colors.black26,
+                          ),
+                          prefixIcon: const Icon(Icons.lock_outline),
+                          suffix: InkWell(
+                            onTap: (){
+                                  setState(() {
+                                      passToggle = !passToggle;
+                                    });
+                                },
+                           child: Icon(passToggle ? Icons.visibility_outlined : Icons.visibility_off_outlined),
+                          ),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
                               color: Colors.black12, // Default border color
@@ -152,7 +239,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       const SizedBox(
-                        height: 25.0,
+                        height: 10.0,
                       ),
                       // i agree to the processing
                       Row(
