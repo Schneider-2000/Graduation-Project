@@ -2,8 +2,8 @@
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/intropage.dart';
-// import 'package:project12/Screens/welcome_screen.dart';
+import 'package:ALLS/Screens/intropage.dart';
+// import 'package:ALLS/Screens/welcome_screen.dart';
 
 
 class Splash_Screen extends StatelessWidget {

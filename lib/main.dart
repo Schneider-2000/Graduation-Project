@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/Login.dart';
-import 'package:project12/Theme/theme.dart';
+import 'package:ALLS/Screens/auth_page.dart';
+import 'package:ALLS/Theme/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
+ await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
   runApp(const MyApp());
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ALLS',
       theme: lightMode,
-      home: const SignInScreen()
+      home:  const AuthPage()
       // Splash_Screen(),
       //  Splash_Screen(),
       // Home(),

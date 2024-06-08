@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/categries_details.dart';
+import 'package:ALLS/Screens/categries_details.dart';
 
 class SlangCategories extends StatelessWidget {
   const SlangCategories({super.key});

@@ -2,9 +2,9 @@
 
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/Slang_categories.dart';
-import 'package:project12/Screens/categries.dart';
-import 'package:project12/Screens/level.dart';
+import 'package:ALLS/Screens/Slang_categories.dart';
+import 'package:ALLS/Screens/categries.dart';
+import 'package:ALLS/Screens/level.dart';
 
 
 class Home extends StatefulWidget {
@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Image.asset(
-                  'assets/images/Logo.jpg',
+                  'assets/images/Logo1.png',
                   height: 180,
                 ),
               ),

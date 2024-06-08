@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/lession_listen.dart';
-import 'package:project12/Screens/lession_speaking.dart';
+import 'package:ALLS/Screens/lession_listen.dart';
+import 'package:ALLS/Screens/lession_speaking.dart';
 
 class Sections extends StatelessWidget {
   const Sections({super.key});

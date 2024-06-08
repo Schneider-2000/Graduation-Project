@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/intoimg.dart';
-import 'package:project12/Screens/welcome_screen.dart';
+import 'package:ALLS/Screens/intoimg.dart';
+import 'package:ALLS/Screens/welcome_screen.dart';
 // import 'package:projectalls/test/getapi2.dart';
 // import 'package:projectalls/test/intoimg.dart';
  import 'package:smooth_page_indicator/smooth_page_indicator.dart';

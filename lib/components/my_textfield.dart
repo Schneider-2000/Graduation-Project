@@ -8,7 +8,7 @@ class MyTextField extends StatelessWidget {
   final String label;
 
   
-   MyTextField({
+   const MyTextField({
     super.key,
     this.controller,
     required this.obscureText,
@@ -20,18 +20,18 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: TextField(
                             controller: controller,
                             obscureText: obscureText,
                             decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
+                              enabledBorder: const OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black),
                                 borderRadius: BorderRadius.all(Radius.circular(5) )
                               ),
                             label: Text(label),
                             hintText: hintText,
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               color: Colors.black26,
                             ),
                             fillColor: Colors.grey.shade100,

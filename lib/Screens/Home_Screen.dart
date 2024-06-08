@@ -1,12 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/home.dart';
+import 'package:ALLS/Screens/home.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  // sign user out method................
+
+  void SignUserOut (){
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(actions: [IconButton(onPressed: SignUserOut, icon: const Icon(Icons.logout_outlined))],),
       backgroundColor: const Color.fromARGB(255, 7, 13, 46),
       // backgroundColor: const Color.fromARGB(255, 24, 16, 39),
       body: Column(

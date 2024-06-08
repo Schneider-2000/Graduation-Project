@@ -1,10 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/Login.dart';
-import 'package:project12/Screens/signup_screen.dart';
-import 'package:project12/Theme/theme.dart';
-import 'package:project12/Widgets/custom_scaffold.dart';
-import 'package:project12/Widgets/welcome_button.dart';
+import 'package:ALLS/Screens/auth_page.dart';
+import 'package:ALLS/Widgets/custom_scaffold.dart';
 
 
 class WelcomeScreen extends StatelessWidget {
@@ -18,62 +15,100 @@ class WelcomeScreen extends StatelessWidget {
           Flexible(
               flex: 8,
 
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 0,
-                  horizontal: 40.0,
-                ),
-                child: Center(
-                  child: RichText(
-                    textAlign: TextAlign.center,
-                    text: const TextSpan(
-                      children: [
-                        TextSpan(
-                            text: 'Welcome\n',
-                            style: TextStyle(
-                              fontSize: 45.0,
-                              fontWeight: FontWeight.w600,
-                            )),
-                        TextSpan(
-                            text:
-                                'You will learn a lot about the Arabic language and you will enjoy learning the Slang dialect',
-                            style: TextStyle(
-                              fontSize: 20,
-                              // height: 0,
-                            ))
-                      ],
-                    ),
-                  ),
-                ),
-              )),
-          Flexible(
-            flex: 1,
-            child: Align(
-              alignment: Alignment.bottomRight,
-              child: Row(
+              child: Column(
                 children: [
-                  const Expanded(
-                    child: WelcomeButton(
-                      buttonText: 'Sign in',
-                      onTap: SignInScreen(),
-                      color: Colors.transparent,
-                      textColor: Colors.white,
+                  Image.asset(
+                      'assets/images/Logo.jpg',
+                      height: 180,
                     ),
-                  ),
-                  Expanded(
-                    child: WelcomeButton(
-                      buttonText: 'Sign up',
-                      onTap: const SignUpScreen(),
-                      color: Colors.white,
-                      textColor: lightColorScheme.primary,
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 0,
+                      horizontal: 40.0,
+                    ),
+                    child: Center(
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(
+                                text: 'Welcome\n',
+                                style: TextStyle(
+                                  fontSize: 45.0,
+                                  fontWeight: FontWeight.w600,
+                                )),
+                            TextSpan(
+                                text:
+                                    'You will learn a lot about the Arabic language and you will enjoy learning the Slang dialect',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  // height: 0,
+                                ))
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ],
+              )
               ),
-            ),
+          SizedBox(
+                        width: double.infinity,
+            height: 130,
+            child: Card(
+              color: const Color.fromARGB(255, 239, 241, 243),
+              elevation: 10,
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(45),
+                bottomRight: Radius.circular(15),
+                topLeft: Radius.circular(15),
+                topRight: Radius.circular(45),
+              )),
+                        child: ElevatedButton(
+                          onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const AuthPage()));
+                          },
+                          child: const Text('Get Started',
+                          style: TextStyle(
+                                  fontSize: 35, fontWeight: FontWeight.bold,color: Colors.white
+                                )
+                          ),
+                        ),
+                      ),
           ),
-        ],
+          const SizedBox(
+            height: 40,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                   Card(
+                    color: Colors.deepPurple,
+                    elevation: 3,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(45),
+                      bottomRight: Radius.circular(15),
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(45),
+                    )),
+                  )
+         
+        ]
       ),
+                  
+                
+          
+          )  
+        ]
+        ),           
+          
       children: const [
           Stack(
           children: <Widget>[

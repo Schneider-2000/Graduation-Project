@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project12/Screens/categries.dart';
-import 'package:project12/Screens/sections.dart';
+import 'package:ALLS/Screens/categries.dart';
+import 'package:ALLS/Screens/sections.dart';
 
 
 class Level extends StatelessWidget {
